@@ -31,91 +31,128 @@ comment
 #endregion
 
 #region Variables
-Console.WriteLine("What is your name?");
+Console.WriteLine("To start playing, press a key.");
+Console.ReadLine();
 
-//<Type> <Name> = <Value> ;
-string myString = "This is how to define a string variable!";
-
-//Reading a string from the console
-myString = Console.ReadLine();
-
-//Writing it back to the console
-Console.WriteLine("Aaah, welcome " + myString + ", nice to meet you!");
-#endregion
-
-#region Data types
-Console.WriteLine("Do you want to learn about the simplest data types?");
-/*
-* The four main basic types we we will work with in the beginning are:
-* bool, Int, Float and String   
-* bool or boolean, can only be 'true' or 'false'
-* Int, or integer, is a whole number; 1, 2, 3
-* Float is a decimal number; 3.14 or 7.777
-* Strings is just text found between quotationmarks "This is a string, easy right?"
-*
-* Programmers use these different types to better communicate their thoughts and optimize the program
-* C# have, at the time of writing; 10 different types of numbers, choosing the right ones can be key to your objective.
-*
-* There are many different data types which can be explored in the Microsoft C# documentation, see link below.
-* https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types
-*/
+BeginGame:
+Console.ForegroundColor = ConsoleColor.DarkGreen;
+Console.WriteLine("------------------------------------");
+Console.WriteLine("You see before you a forest. Do you want to head in?");
+Console.WriteLine("(Type \"yes\" or \"no\")");
 
 string answer = Console.ReadLine();
 
-bool LearnAboutDataTypes = false;
+bool EnterForest = false;
 if(answer == "yes"){
-    LearnAboutDataTypes = true;
+    EnterForest = true;
 }
 
-if(LearnAboutDataTypes == true){
-    Console.WriteLine("Then you have come to the right place!");
-    Console.WriteLine("The 'bool' type can either be 'true' or 'false', nothing more, nothing less.");
-    Console.WriteLine("When you answered 'yes', a bool named 'LearnAboutDataTypes' was set to 'true'");
-    Console.WriteLine("And allowed for these messages!");
-    Console.WriteLine("...");
-    Console.ReadLine();
-    
-    Console.WriteLine("Now... The next data type we are gonna talk about is the integer, called an 'int'");
-    Console.WriteLine("It is used to store whole numbers, like 1,2,3,4 and so on.");
-    Console.WriteLine("Try inserting an integer now:");
-    string inputFromConsole = Console.ReadLine();
-    int number = int.Parse(inputFromConsole);
-    
-    Console.WriteLine("I have now converted a text string into an integer!");
-    number = number + 1;
-    //number++;
-    //number += 1;
-    Console.WriteLine("We can now do math operations on it, and voila, your number + 1 is equal to = " + number);
-    Console.WriteLine("...");
-    Console.ReadLine();
-
-    Console.WriteLine("Next up we have the Float data type");
-    Console.WriteLine("Float is decimal numbers, you can do math on it, just as we did with the integer");
-    Console.WriteLine("Remember to use 'f'!");
-    float OneThird = 1.0f/3.0f; //Notice the 'f' to indicate this number is a float value
-    Console.WriteLine("Like for example 1.0f/3.0f, which gives : " + OneThird);
-    Console.WriteLine("where as 1/3 gives = " + 1/3 + ". Because the computer thinks it is working with whole numbers (integers)");
-    Console.WriteLine("...");
-    Console.ReadLine();
-
-    Console.WriteLine("Lastly, the string data type.");
-    Console.WriteLine("Strings are text, and can be found between quotation marks");
-    Console.WriteLine("We have used strings to read and write to the console, this line is a string");
-    Console.WriteLine("...");
-    Console.ReadLine();
+if(EnterForest == false){
+Console.WriteLine("------------------------------------");
+Console.WriteLine("Since you don't wish to enter the forest, the game cannot begin. Shutting down...");
+Console.ReadLine();
 }
-Console.WriteLine("...The end...");
-Console.ReadLine(); //Stops program from exiting until we press a key
+
+if(EnterForest == true){
+    Console.WriteLine("------------------------------------");
+    Console.WriteLine("Upon entering, you find yourself on an old gravel path. Which direction do you head in?\n \nA: Right\nB: Left");
+    }
+
+    string answer2 = Console.ReadLine();
+
+    //left = b | right = a
+    bool Direction = false;
+    if(answer2 == "a"){
+        Direction = true;
+    }
+    if(answer2 == "b"){
+        Direction = false;
+    }
+
+//Direction: right
+if(Direction == true){
+    CottageChoice:
+    Console.WriteLine("------------------------------------");
+    Console.WriteLine("The path leads you to a cottage built of wood and stone. You hear two voices coming from the inside.\n \nA: Sneak around the house and try to listen in on their conversation.\nB: Approach the door and knock.");
+    
+    string answerCottage = Console.ReadLine();
+    if(answerCottage == "b"){
+        Console.WriteLine("To be continued...");
+        Console.ReadLine();
+    }
+
+    if(answerCottage == "a"){
+        Console.WriteLine("------------------------------------");
+        Console.WriteLine("As you circle around the house, you notice a round hole in the wooden wall. By pressing your ear up against it, you're able to overhear their conversation.");
+        Console.ReadLine();
+        Console.WriteLine("Their voices are subdued, the two men whispering to one another. \"The plan begins any moment now. Are you ready?\"");
+        Console.WriteLine("\"I think so,\" the other responds.");
+        Console.WriteLine("Just as he gives his answer, the wall gives in and you crash into the house, planks of wood joining you in your fall.");
+        Console.WriteLine("A: Look up and check your surroundings.");
+        Console.ReadLine();
+        Console.WriteLine("Gazing up, you see one of the men. He's giving you a nasty grin, and this grin is the last thing you see: soon after, he pulls out a knife..."); 
+        //Death
+        Console.WriteLine(".");
+        Thread.Sleep(1000);
+        Console.WriteLine(".");
+        Thread.Sleep(1000);
+        Console.WriteLine(".");
+        Thread.Sleep(1000);
+        Console.WriteLine(".");
+        Thread.Sleep(1000);
+        Console.WriteLine("You have perished.");
+        Console.WriteLine("If you wish to challenge your fate, type \"a\". If, however, you would prefer to stop playing, write something else.");
+        string choiceDeath = Console.ReadLine();
+    
+        if(choiceDeath == "a"){
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            goto BeginGame; 
+        }
+        else{
+            Console.Read();
+        }
+}
+
+//Direction: left
+if(Direction == false){
+    Console.ForegroundColor = ConsoleColor.DarkRed;
+    Console.WriteLine("------------------------------------");
+    Console.WriteLine("As you walk down the path, you stumble and fall into a deep hole. Slowly, your vision degrades...");
+    bool EndGame = true;
+
+    //Runs when the player dies
+    if(EndGame == true){
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine("You have perished.");
+    Console.WriteLine("If you wish to challenge your fate, type \"a\". If, however, you would prefer to stop playing, write something else.");
+    string choiceDeath = Console.ReadLine();
+    
+    if(choiceDeath == "a"){
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine();
+        goto BeginGame; 
+    }
+    else{
+        Console.Read();
+    }
+}
+}
+
+
+
+
+
+
+
 
 #endregion
-
-
-/* Teachers corner
-
-* Operators; +, -, /, *, %, ++, --, *=, +=, -=
-
-* Casting
-int.Parse()
-Convert.ToInt32()
-(int)
-*/
