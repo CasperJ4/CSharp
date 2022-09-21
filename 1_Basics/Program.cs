@@ -1,23 +1,4 @@
-﻿#region Assignment; Write your own story
-/* Todays assignment
-*   Run this program
-*   Read and understand this programs source code
-*   Write a short story using the Console for input and output
-*   Try to make use of as many of the below techniques as possible
-*/
-
-//Console.WriteLine("...");
-//Console.ReadLine();
-//int.Parse("123");
-//if, elseif, else
-
-//bool ExampleBool = true;
-//int ExampleInt = 123;
-//float ExampleFloat = 123.21f;
-//string ExampleString = "Example 123";
-#endregion
-
-#region Story
+﻿#region Story
 Console.WriteLine("To start playing, press a key.");
 Console.ReadLine();
 
