@@ -65,6 +65,7 @@ for(int i = 0; i < 10; i++){
     numbers[i] += 1;
 }
 
+//Here, the strings are assigned values, which are then written in the console. 
 foreach(int number in numbers){
     Console.WriteLine(number);
 }
