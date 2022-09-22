@@ -1,7 +1,5 @@
-﻿#region Story
-Console.WriteLine("To start playing, press a key.");
+﻿Console.WriteLine("To start playing, press a key.");
 Console.ReadLine();
-
 
 BeginGame:
 Console.ForegroundColor = ConsoleColor.White;
@@ -43,12 +41,45 @@ if(EnterForest == true){
         Direction = false;
     }
 
+//Direction: left
+if(Direction == false){
+    Console.WriteLine("Test");
+    Console.ForegroundColor = ConsoleColor.DarkRed;
+    Console.WriteLine("------------------------------------");
+    Console.WriteLine("As you walk down the path, you stumble and fall into a deep hole. Slowly, your vision degrades...");
+    Console.ReadLine();
+    //Death
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine(".");
+    Thread.Sleep(1000);
+    Console.WriteLine("You have perished.");
+    Console.WriteLine("If you wish to challenge your fate, type \"a\". If, however, you would prefer to stop playing, write something else.");
+    string choiceDeath = Console.ReadLine();
+    
+            if(choiceDeath == "a"){
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
+                goto BeginGame; 
+            }
+            else{
+                Console.Read();
+        }
+        }
+
 //Direction: right
 if(Direction == true){
     Console.WriteLine("------------------------------------");
     Console.WriteLine("The path leads you to a cottage built of wood and stone. You hear two voices coming from the inside.\n \nA: Sneak around the house and try to listen in on their conversation.\nB: Approach the door and knock.");
 
     string answerCottage = Console.ReadLine();
+
+#region Option: head for the door
     if(answerCottage == "b"){
         Console.WriteLine("You knock on the door three times: first carefully, then with full force.");
         Console.WriteLine("On the third knock, the door opens and a man comes lunging out.");
@@ -144,14 +175,15 @@ if(Direction == true){
         }
         }
 }
+#endregion
         
-
+#region Option: Circle around the house
     if(answerCottage == "a"){
         Console.WriteLine("------------------------------------");
-        Console.WriteLine("As you circle around the house, you notice a round hole in the wooden wall. By pressing your ear up against it, you're able to overhear their conversation.");
+        Console.WriteLine("As you circle around the house, you notice a round hole in the wooden wall. By pressing your ear up against it, \nyou're able to overhear their conversation.");
         Console.ReadLine();
         Console.WriteLine("Their voices are subdued, the two men whispering to one another. \"The plan begins any moment now. Are you ready?\"");
-        Console.WriteLine("\"I think so,\" the other responds.");
+        Console.WriteLine("\"I think so,\" the other responds.\n");
         Console.WriteLine("Just as he gives his answer, the wall gives in and you crash into the house, planks of wood joining you in your fall.");
         Console.WriteLine("A: Look up and check your surroundings.");
         Console.ReadLine();
@@ -181,44 +213,5 @@ if(Direction == true){
         else{
             Console.Read();
         }
-}
-
-//Direction: left
-if(Direction == false){
-    Console.ForegroundColor = ConsoleColor.DarkRed;
-    Console.WriteLine("------------------------------------");
-    Console.WriteLine("As you walk down the path, you stumble and fall into a deep hole. Slowly, your vision degrades...");
-    bool EndGame = true;
-
-    //Runs when the player dies
-    if(EndGame == true){
-    Console.WriteLine(".");
-    Thread.Sleep(1000);
-    Console.WriteLine(".");
-    Thread.Sleep(1000);
-    Console.WriteLine(".");
-    Thread.Sleep(1000);
-    Console.WriteLine(".");
-    Thread.Sleep(1000);
-    Console.WriteLine("You have perished.");
-    Console.WriteLine("If you wish to challenge your fate, type \"a\". If, however, you would prefer to stop playing, write something else.");
-    string choiceDeath = Console.ReadLine();
-    
-    if(choiceDeath == "a"){
-        Console.WriteLine();
-        Console.WriteLine();
-        Console.WriteLine();
-        goto BeginGame; 
-    }
-    else{
-        Console.Read();
-    }
-}
-} }
-
-
-
-
-
-
+}}
 #endregion
